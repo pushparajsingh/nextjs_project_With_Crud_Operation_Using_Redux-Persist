@@ -3,7 +3,6 @@ import React from "react";
 import Header from "./Header/Header";
 
 const Layout = ({ children }) => {
-  const Router = useRouter();
   return (
     <>
       <Header />

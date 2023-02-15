@@ -70,13 +70,14 @@ const UserRegister = () => {
         });
         dispatch(updateUserData(updatedData));
         dispatch(resetUserData());
+        navigate.push("/User/UserList");
       } else {
         dispatch(registerUserData({ ...values, key: uuid() }));
+        navigate.push("/Login/Login");
       }
       setTimeout(() => {
         notify("success", "User Submitted Successfully!");
       }, USERFORM_TIMEOUT);
-      navigate.push("/User/UserList");
     },
   });
 

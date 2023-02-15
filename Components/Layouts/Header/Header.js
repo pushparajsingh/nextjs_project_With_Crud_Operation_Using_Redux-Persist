@@ -18,6 +18,7 @@ function Header() {
   const tokenAuth = useSelector((state) => state?.token?.token);
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const updatedData = useSelector((state) => state?.token?.token);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -55,15 +56,16 @@ function Header() {
             />
           </Typography>
           {!(
-            pathname == "/" ||
-            pathname == "/User/UserForm" ||
-            pathname == "/Login/Login"
+            (pathname == "/" ||
+              pathname == "/User/UserForm" ||
+              pathname == "/Login/Login") &&
+            !updatedData
           ) ? (
             <>
               <Link
                 href={"/User/UserList"}
                 className={
-                  pathname == "/User/UserList"
+                  pathname == "/User/UserList" || pathname == "/User/UserForm"
                     ? "activeColor colorText"
                     : "activeColor"
                 }

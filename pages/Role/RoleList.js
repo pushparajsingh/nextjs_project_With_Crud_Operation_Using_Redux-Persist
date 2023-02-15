@@ -23,7 +23,6 @@ import DeleteAlert from "../../Components/DeleteAlert/DeleteAlert";
 const RoleListing = () => {
   const navigate = useRouter();
   const roleData = useSelector((value) => value?.roles?.roleData);
-  const tokenData = useSelector((state) => state.token?.token);
   const dispatch = useDispatch();
   const [rows, setRows] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -44,12 +43,6 @@ const RoleListing = () => {
     navigate.push("/Role/RoleForm");
     dispatch(getRoleData(row));
   };
-
-  useEffect(() => {
-    if (!tokenData) {
-      navigate.push("/Login/Login");
-    }
-  }, []);
 
   return (
     <>

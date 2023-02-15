@@ -15,8 +15,10 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Layout>
-          <Component {...pageProps} />
-          <ToastifyContainer />
+          <ProtectedRoutes>
+            <Component {...pageProps} />
+            <ToastifyContainer />
+          </ProtectedRoutes>
         </Layout>
       </PersistGate>
     </Provider>

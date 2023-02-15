@@ -9,7 +9,7 @@ import { numberKeyRegExp } from "../../Utilis/ReguxValidation";
 import { useRouter } from "next/router";
 import toast from "../../Components/Toast/index";
 import { ROLEFORM_TIMEOUT } from "../../Utilis/Utilis";
-import { useEffect } from "react";
+import { useCallback } from "react";
 
 const validationSchema = yup.object({
   roleLabel: yup
@@ -26,7 +26,6 @@ const RoleRegister = () => {
   const navigate = useRouter();
   const dispatch = useDispatch();
   const roleData = useSelector((state) => state?.roles?.roleData);
-  const tokenData = useSelector((state) => state.token?.token);
   const updateData = useSelector((state) => state?.roles?.updateRoleData);
   const notify = useCallback((type, message) => {
     toast({ type, message });
@@ -76,12 +75,6 @@ const RoleRegister = () => {
       }
     },
   });
-
-  useEffect(() => {
-    if (!tokenData) {
-      router.push("/Login/Login");
-    }
-  }, []);
 
   return (
     <>

@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { resetToken, setToken } from "../../Redux/Slice/TokenSlice";
+import { setToken } from "../../Redux/Slice/TokenSlice";
 
 const validationSchema = yup.object({
   email: yup
@@ -20,13 +20,12 @@ const validationSchema = yup.object({
 
 const Login = () => {
   const getData = useSelector((state) => state?.users?.userData);
-  const tokenData = useSelector((state) => state?.token?.token);
   const router = useRouter();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: "foobar@example.com",
-      password: "foobar",
+      password: "12345678",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -43,11 +42,6 @@ const Login = () => {
       }
     },
   });
-  useEffect(() => {
-    if (tokenData) {
-      router.push("/User/UserList");
-    }
-  }, []);
 
   return (
     <div className="loginForm">

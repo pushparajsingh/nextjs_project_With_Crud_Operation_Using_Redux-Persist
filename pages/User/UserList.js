@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CreateIcon from "@mui/icons-material/Create";
 import TableNoRecordFound from "../../Components/Table/TableNoRecordFound";
@@ -18,7 +20,6 @@ import DeleteAlert from "../../Components/DeleteAlert/DeleteAlert";
 const UserListings = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state?.users?.userData);
-  const tokenData = useSelector((state) => state?.token?.token);
   const [rows, setRows] = useState([]);
   const navigate = useRouter();
   const [isLoading, setIsLoading] = useState(true);
@@ -41,12 +42,7 @@ const UserListings = () => {
     navigate.push("/User/UserForm");
     dispatch(getUserData(row));
   };
-  useEffect(() => {
-    if (!tokenData) {
-      navigate.push("/Login/Login");
-    }
-  }, []);
-  // dispatch(resetUserData());
+
   return (
     <div className="User-Listing">
       <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>User List</h1>
