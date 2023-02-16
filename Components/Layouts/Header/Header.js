@@ -1,11 +1,13 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import Container from "@mui/material/Container";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+} from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +20,6 @@ function Header() {
   const tokenAuth = useSelector((state) => state?.token?.token);
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const updatedData = useSelector((state) => state?.token?.token);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -59,7 +60,7 @@ function Header() {
             (pathname == "/" ||
               pathname == "/User/UserForm" ||
               pathname == "/Login/Login") &&
-            !updatedData
+            !tokenAuth
           ) ? (
             <>
               <Link

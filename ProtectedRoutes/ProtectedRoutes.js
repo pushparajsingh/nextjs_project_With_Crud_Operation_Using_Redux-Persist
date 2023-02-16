@@ -1,29 +1,32 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import * as routePage from "../Utilis/constants";
 
 // const isBrowser = () => typeof window !== "undefined";
 
 const ProtectedRoutes = ({ children }) => {
   const router = useRouter();
   const token = useSelector((state) => state?.token?.token);
-  let unprotectedRoutes = ["/", "/User/UserForm", "/Login/Login"];
+  let unprotectedRoutes = [
+    routePage.LOGIN_PAGE,
+    routePage.USER_FORM,
+    routePage.LOGIN_PAGETWO,
+  ];
   let protectedRoutes = [
-    "/Role/RoleList",
-    "/Role/RoleForm",
-    "/User/UserList",
-    "/User/UserForm",
+    routePage.ROLE_LIST,
+    routePage.ROLE_FORM,
+    routePage.USER_LIST,
+    routePage.USER_FORM,
   ];
   const pathIsUnProtected = unprotectedRoutes.indexOf(router.pathname) == -1;
   const pathIsProtected = protectedRoutes.indexOf(router.pathname) == -1;
 
   if (token == "" && pathIsUnProtected) {
-    router.push("/Login/Login");
+    router.push(routePage.LOGIN_PAGE);
   }
   if (token && pathIsProtected) {
-    router.push("/User/UserList");
+    router.push(routePage.USER_LIST);
   }
-
   return children;
 };
 export default ProtectedRoutes;

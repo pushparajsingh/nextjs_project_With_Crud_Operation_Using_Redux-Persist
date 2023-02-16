@@ -1,8 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import { TextField, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { registerRoleData, updateRoleData } from "../../Redux/Slice/RoleSlice";
 import { numberKeyRegExp } from "../../Utilis/ReguxValidation";

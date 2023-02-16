@@ -1,9 +1,7 @@
 import { useFormik } from "formik";
 import * as React from "react";
 import * as yup from "yup";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
+import { Button, TextField, MenuItem } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import {
   updateUserData,

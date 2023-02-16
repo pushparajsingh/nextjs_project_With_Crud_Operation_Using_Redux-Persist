@@ -4,18 +4,16 @@ import { TOSTIFY_TIMEOUT } from "../../../Utilis/Utilis";
 
 const ToastifyContainer = () => {
   return (
-    <>
-      <ToastContainer
-        position="top-right"
-        autoClose={TOSTIFY_TIMEOUT}
-        hideProgressBar={false}
-        newestOnTop={false}
-        draggable={false}
-        pauseOnVisibilityChange
-        closeOnClick
-        pauseOnHover
-      />
-    </>
+    <ToastContainer
+      position="top-right"
+      autoClose={TOSTIFY_TIMEOUT}
+      hideProgressBar={false}
+      newestOnTop={false}
+      draggable={false}
+      pauseOnVisibilityChange
+      closeOnClick
+      pauseOnHover
+    />
   );
 };
 

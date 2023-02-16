@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import { Button, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { setToken } from "../../Redux/Slice/TokenSlice";
