@@ -2,8 +2,6 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import * as routePage from "../Utilis/constants";
 
-// const isBrowser = () => typeof window !== "undefined";
-
 const ProtectedRoutes = ({ children }) => {
   const router = useRouter();
   const token = useSelector((state) => state?.token?.token);
